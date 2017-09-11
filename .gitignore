@@ -1,0 +1,9 @@
+/node_modules/
+/dist/
+/public/music/
+/public/static/
+/public/index.html
+/public/ignacioWeb.appcache
+/server/logs/
+
+npm-debug.log

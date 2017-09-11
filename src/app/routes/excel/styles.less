@@ -1,0 +1,68 @@
+@import "~styles/vars.less";
+@import "~styles/mixin.less";
+
+.home{
+    padding: 10px;
+    color:#fff;
+    .title{
+        font-weight: 500;
+        font-size:20px;
+        span{
+            .transition()
+        }
+    }
+    .sub-title{
+        font-weight: 400;
+        font-size:18px;
+    }
+    .center{
+        text-align: center;
+    }
+    .active{
+        animation: activeAnimate .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+        color:@info-color;
+    }
+    .fg{
+        margin:0 10px;
+    }
+    .send-email-btn{
+        margin-top:15px;
+        float: right;
+        input{
+            padding: 5px 10px;
+            margin-right:10px;
+            width:500px;
+        }
+    }
+    .preview{
+        margin-top:20px;
+        padding: 20px;
+        border:3px solid @info-color;
+    }
+    .home-btn{
+        margin-left:20px;
+    }
+    .table,.preview-table{
+        margin-top:20px;
+        border:1px solid;
+        width:100%;
+        td{
+            padding: 3px 5px;
+            text-align: center;
+            border:1px solid #444;
+        }
+    }
+    .preview-footer{
+        text-align: right;
+        margin-top:10px;
+    }
+
+}
+@keyframes activeAnimate{
+    from{
+        transform: scale(1.1) translate3d(-30px,0,0)
+    }
+    to{
+        transform: scale(1) translate3d(-30px,0,0)
+    }
+}

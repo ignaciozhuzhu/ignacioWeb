@@ -1,0 +1,35 @@
+@import "~styles/vars.less";
+
+.admin-section{
+    padding: 20px;
+    /*竖屏判断*/
+    @media screen and (max-width:768px) and (orientation:portrait){
+        &:after{
+            content:'portrait';
+            display: none;
+        }
+    }
+    .title{
+        text-align: center;
+        color:@primary-color;
+    }
+    table{
+        width:100%;
+        color:#fff;
+        border:1px solid #fff;
+        thead{
+            td{
+                border:1px solid #444;
+            }
+        }
+        td{
+            max-width:100px;
+            max-height:30px;
+            overflow: hidden;
+            text-align: center;
+        }
+    }
+    .admin-pagination{
+        margin-top:10px;
+    }
+}

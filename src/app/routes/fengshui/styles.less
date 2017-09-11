@@ -1,0 +1,64 @@
+@import "~styles/vars.less";
+@import "~styles/mixin.less";
+
+.photo-main {
+    margin: 120px auto 0 auto;
+}
+.photo-controller {
+    @media screen and (min-width:768px) {
+        .image-gallery-slide {
+            background: transparent;
+        }
+        .image-gallery-image {
+            .center();
+
+            img {
+                width: auto;
+                max-height: calc(~'100vh - 200px')
+            }
+        }
+    }
+}
+#root {
+    background: url("../../../../images/fengshui/background.jpg") no-repeat;
+    background-size: cover;
+    min-height: 100%;
+    overflow-y: auto;
+    background-attachment: fixed;
+}
+.t-center {
+    text-align: center;
+}
+.margin10 {
+    margin: 10px;
+}
+.btn-select {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+}
+.btn-select-middle {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+.marginLeft10 {
+    margin: 10px;
+}
+.background-top {
+    background: url("../../../../images/fengshui/huazhou3.png") no-repeat;
+    background-size: contain;
+    height: 235px;
+    overflow-y: auto;
+}
+.spanvam {
+    vertical-align: middle;
+    height: 100%;
+    display: inline-block;
+}
+.vam {
+    vertical-align: middle;
+}
+.margintop20 {
+    margin-top: 20px;
+}

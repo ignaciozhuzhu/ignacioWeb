@@ -1,0 +1,294 @@
+@import "~styles/vars.less";
+@import "~styles/mixin.less";
+
+.article-section{
+    display: flex;
+    justify-content: space-around;
+     @media screen and (max-width:768px){
+         flex-direction: column-reverse
+     }
+    .article-list{
+    color:#fff;
+    flex-basis:68%;
+     @media screen and (max-width:768px){
+         flex:1;
+     }
+    height:auto;
+        margin:20px 0;
+    .article-content-header{
+        padding: 12px 20px;
+        flex:1;
+        background-color: @primary-color;
+        .title{
+            font-size:18px;
+            margin:0;
+            display: flex;
+            align-items: center;
+            i{
+                margin-right: 10px;
+            }
+            span{
+                flex:1
+            }
+            .eidt-article-btn{
+                padding: 2px 7px;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                line-height: 1.5;
+                color:#fff;
+                font-size:14px;
+                background-color: @warning-color;
+                text-align: right;
+                border-radius: 20px;
+                cursor: pointer;
+            }
+        }
+    }
+    .article-content{
+        ul{
+            .articleListAnimate{
+                animation:  articleListAnimate .4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+            }
+            li:first-child{
+                margin-top:none;
+            }
+            li.item{
+                color:@font-color;
+                background:#fff;
+                padding: 30px 20px;
+                opacity: 0;
+                @media screen and (max-width:768px){
+                     padding: 15px 20px;
+                }
+                border-top: 1px solid @border-color;
+                margin-top:15px;
+                transition: box-shadow .7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+                &:hover{
+                    box-shadow: 0px 15px 30px rgba(0,0,0,.1);
+                }
+                .title{
+                    margin:0;
+                    .ellipsis-1();
+                     &,>a{
+                         transition:color .25s ease-in-out;
+                     }
+                    &:hover,>a:hover{
+                        color:@primary-color;
+                    }
+                }
+                .content{
+                    color:@article-content-color;
+                    .ellipsis-n(2);
+                }
+                .info{
+                    font-size:12px;
+                    color:@article-info-color;
+                    .time{
+                        margin: 0 15px;
+                    }
+                    .like{
+                        margin-top: 10px;
+                        .num{
+                            margin-left: 5px;
+                         
+                            font-style: normal;
+                        }
+                        span{
+                            margin-right: 10px;
+                        }
+                        i{
+                            font-size: 12px;
+                            vertical-align: baseline;
+                        }
+                    }
+                    .label{
+                        span:first-child{
+                            margin-left:none;
+                        }
+                        span{
+                            display: inline-block;
+                            padding: 0 10px;
+                            color:#fff;
+                            background-color: @primary-color;
+                            margin:0 3px;
+                            border-radius: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .article-pagination{
+        margin-top: 20px;
+    }
+}
+    .article-ranking{
+        flex-basis:30%;
+        // animation: rankingListAnimate .3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+        @media screen and (max-width:768px){
+            flex:1;
+        }
+        min-height:200px;
+        height: auto;
+        margin:20px 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,.2);
+        .article-ranking-header{
+            background-color:@info-color;
+            padding: 12px 20px;
+            flex:1;
+            h2{
+                font-size:18px;
+                margin:0;
+                color:#fff;
+                i{
+                    margin-right: 10px;
+                }
+                .category{
+                    float: right;
+                    cursor: pointer;
+                    a{
+                        padding: 2px 7px;
+                        color:#dcdcdc;
+                        background:@bg-color;
+                        font-size:12px;
+                        border-radius: 20px;
+                        line-height: 1.5;
+                        text-align: center;
+                        .transition();
+                        margin:0 7px;
+                        &.active{
+                            color:#fff;
+                            background: @warning-color;
+                        }
+                    }
+                }
+            }
+        }
+        .article-ranking-list{
+            .ranking-item{
+                transform: scale(0);
+                animation: rankingItemAnimate .3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+                padding: 10px 16px;
+                border-top:1px dashed @border-color;
+                display: flex;
+                align-content: center;
+                align-items: center;
+                justify-content: space-around;  
+                background: #fff;
+                .article-name{
+                    flex-basis: 70%;
+                    display: inline-block;
+                    .ellipsis-1();
+                }
+                .type{
+                    flex: 1;
+                    display: inline-flex;
+                    padding: 0 3px;
+                    color:#fff;
+                    justify-content: center;
+                    text-align: center;
+                    font-size:12px;
+                    line-height: 1.5;
+                    background-color: @warning-color;
+                    border-radius: 20px;
+                    margin-left: 10px;
+                }
+                &:first-child{
+                    border-top:none;
+                }
+            }
+            
+        }
+    }
+}
+.edit-article-modal{
+    .modal-content{
+        padding: 10px 20px !important;
+    }
+    .edit-form{
+        fieldset{
+            border:none;
+            margin: 0 auto 10px auto;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            position: relative;
+            .draft-tip{
+                color:@error-color;
+                position: absolute;
+                font-size: 13px;
+                bottom:4px;
+                right:5px;
+                opacity: 0
+            }
+            .draft-animate{
+                animation: draft-animate .3s forwards
+            }
+            input{
+                flex:1;
+                width: 100%;
+                display: block;
+            }
+            input,textarea{
+                padding: 4px 10px;
+                outline: none;
+            }
+            textarea{
+                flex:1;
+            }
+            select{
+                padding: 4px 6px;
+                width: 100%;
+            }
+        }
+        .edit-textarea{
+            resize: none;
+            width:100%;
+            height:6rem;
+            overflow-y: auto;
+        }
+    }
+}
+@keyframes rankingListAnimate{
+    from {
+        opacity: 0;
+        transform:  translate3d(0,-100px,0)
+    }
+    to{
+        opacity: 1;
+        transform: translate3d(0,0,0)
+    }
+}
+@keyframes articleListAnimate{
+    from {
+        opacity: 1;
+        transform:  translate3d(0,100px,0)
+    }
+    to{
+        opacity: 1;
+        transform: translate3d(0,0,0)
+    }
+}
+@keyframes rankingItemAnimate{
+    from {
+        opacity: 0;
+        transform: scale(1) translate3d(100px,0,0)
+    }
+    to{
+        opacity: 1;
+        transform: scale(1) translate3d(0,0,0)
+    }
+}
+@keyframes draft-animate{
+    from{
+        opacity: 0;
+        transform: translate3d(0,30px,0)
+    }
+    to{
+        opacity: 1;
+        transform: translate3d(0,0,0)
+    }
+}
